@@ -1,0 +1,126 @@
+.chat
+{
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 20px;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.chat-box
+{
+  border: 3px solid #24262b;
+  border-radius: 5px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 35px;
+}
+
+.sender-name
+{
+  font-weight: bold;
+}
+
+.message-text
+{
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.user1 .message-text
+{
+  color: #009790;
+  background-color: #24262b;
+}
+
+.user2 .message-text
+{
+  color: #424d58;
+  background-color: white;
+}
+
+
+/*form*/
+form
+{
+  display: flex;
+  align-items: center;
+  border: 3px solid #24262b;
+  border-radius: 5px;
+  margin: 20px 25% 40px;
+}
+
+input[type="text"]
+{
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  font-size: 14px;
+}
+
+button[type="submit"]
+{
+  padding: 10px;
+  border: none;
+  background-color: #24262b;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover
+{
+  background-color: #424d58;
+}
+
+.floating-button {
+  margin-top: 30px;
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  z-index: 10000;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #009790;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 0.5s ease;
+}
+
+.floating-button:hover {
+  background-color: #00bcd4;
+}
+
+/* responsiv */
+@media (max-width: 768px)
+{
+  .chat-box {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  form {
+    margin: 20px 10% 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .chat-box {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  form {
+    margin: 20px 5% 40px;
+  }
+}
+
+
+
+
+

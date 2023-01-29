@@ -1,0 +1,44 @@
+.index {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+
+h1
+{
+  width: 70%;
+  margin: auto;
+}
+
+.index:nth-child(2n)
+{
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.box-right, .box-left {
+  width: 50%;
+  margin: auto;
+}
+
+.box-left img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.box-right p, .box-left p {
+  margin: auto;
+  text-align: justify;
+  padding: 20px;
+  font-size: 17px;
+}
+
+/* Responsive */
+@media (max-width: 1050px) {
+  .box-right, .box-left {
+    flex: 100%;
+  }
+}

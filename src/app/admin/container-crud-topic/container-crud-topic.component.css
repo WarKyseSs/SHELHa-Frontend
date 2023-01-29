@@ -1,0 +1,30 @@
+.menuCrud
+{
+  width: 80%;
+  margin: auto;
+}
+
+.menuCrud ul
+{
+  list-style: none;
+}
+
+.menuCrud ul li
+{
+  background-color: #009790;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.menuCrud ul li a
+{
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+

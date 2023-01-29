@@ -1,0 +1,50 @@
+.article {
+  padding: 0 0 0 0;
+  margin: 80px 100px;
+  border-radius: 5px;
+  color: #ffff;
+  background-color: #009790;
+  line-height: 1em;
+}
+
+.article-header {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #424d58;
+}
+
+.article a{
+  color: #FFFFFF;
+}
+
+.article-body {
+  padding: 10px;
+  width:100%;
+}
+
+/* Titre de l'article */
+.article-title {
+  font-size: 38px;
+  line-height: 1.5em;
+  font-weight: bold;
+  color: white;
+  padding: 20px;
+  word-wrap: break-word;
+}
+
+.article-datePublication {
+  text-align: end;
+}
+
+/* Description de l'article */
+.article-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: white;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.article-author {
+  text-align: end;
+}

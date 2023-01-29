@@ -1,0 +1,30 @@
+<div class="card-container">
+  <div *ngIf="_signinService.isAdmin() || _signinService.isModo()" class="card">
+    <a routerLink="users" routerLinkActive="active">
+      <i class="fa fa-users" aria-hidden="true"></i>
+      <h3>Gestion des utilisateurs</h3>
+      <p>Consiste à gérer les différents comptes créés par les internautes sur notre site.</p>
+    </a>
+  </div>
+  <div *ngIf="_signinService.isAdmin() || _signinService.isModo()" class="card">
+    <a routerLink="crud" routerLinkActive="active">
+      <i class="fa fa-list-alt" aria-hidden="true"></i>
+      <h3>Gestion des catégories</h3>
+      <p>Consiste à classer les différents catégories pour les posts.</p>
+    </a>
+  </div>
+  <div *ngIf="_signinService.isAdmin() || _signinService.isCommunityManager()" class="card">
+    <a routerLink="articles" routerLinkActive="active">
+      <i class="fa fa-newspaper"></i>
+      <h3>Gestion des articles</h3>
+      <p>Consiste à gérer les différents articles.</p>
+    </a>
+  </div>
+  <div *ngIf="_signinService.isAdmin() || _signinService.isCommunityManager()" class="card">
+    <a routerLink="events" routerLinkActive="active">
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+      <h3>Gestion des événements</h3>
+      <p>Consiste à gérer les différents articles.</p>
+    </a>
+  </div>
+</div>

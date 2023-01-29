@@ -1,0 +1,43 @@
+<div class="comments">
+  <div class="pagination">
+    <label>Afficher : </label>
+    <select (change)="onListSizeChange($event)">
+      <option *ngFor = "let size of listSizes">{{size}}</option>
+    </select>
+    <label>Recherche : </label>
+    <input type="text" [(ngModel)]="commentFilter" placeholder="Recherche">
+  </div>
+  <ul>
+    <li class="comment" *ngFor = "let comment of comments | filter:commentFilter | paginate: { itemsPerPage: listSize, currentPage: page, totalItems: count}">
+      <div class="infoComment">
+        <div class="headerComment">
+          <a class="authorComment" routerLink="../../../profil/{{comment.username}}"><i class="fa fa-user"></i> {{comment.username}} - {{comment.userRole}}</a>
+          <p class="dateComment">{{comment.dateComment | date:'dd/MM/YYYY - HH:mm'}}</p>
+        </div>
+        <div class="bodyComment">
+          <p class="message" *ngIf="element == false">{{comment.message}} {{comment.isSelected}}</p>
+          <div *ngIf="comment.isSelected">
+            <form [formGroup]="form" (ngSubmit)="emitUpdate(comment)">
+              <textarea class="txtMessage" formControlName="newComment" [ngModel]="comment.message"></textarea>
+              <input class="submit" type="submit" [disabled]="form.invalid">
+            </form>
+          </div>
+          <div class="actionForms">
+            <button class="btnForms" *ngIf="element == false && comment.canChange" (click)="showData(comment)"><i class="fa fa-pencil-alt"></i> Modifier</button>
+            <button class="btnForms" *ngIf="element == true && comment.canChange" (click)="hideData()"><i class="fa fa-times" aria-hidden="true"></i> Masquer</button>
+            <button class="btnForms" *ngIf="_signInService.isAdmin() || _signInService.isModo() && comment.canChange" (click)="emitDelete(comment)"><i class="fa fa-minus" aria-hidden="true"></i> Supprimer</button>
+          </div>
+          <p *ngIf="('0001-01-01T00:00:00' | date:'dd/MM/yyyy') != (comment.dateLastEdit | date:'dd/MM/yyyy')" class="messageModif">
+            Modifié le {{comment.dateLastEdit | date:'dd/MM/YYYY à HH:mm'}}
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="onListDataChange($event)"
+  ></pagination-controls>
+</div>
+

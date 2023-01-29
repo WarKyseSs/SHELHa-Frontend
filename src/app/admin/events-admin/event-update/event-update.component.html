@@ -1,0 +1,36 @@
+<div class="registr-box">
+  <form [formGroup]="form" (ngSubmit)="emitUpdateEvent()">
+    <h2>Modification d'un événement</h2>
+
+    <label for="titres">
+      Choississez un événement à modifier :
+    </label>
+    <select class="select" #selectList name="titres" id="titres" formControlName="idEvent" [(ngModel)]="selected" (ngModelChange)="SelectHandler(selected)">
+      <option *ngFor="let event of events" [ngValue]="event.idEvent">{{event.title}}</option>
+    </select>
+
+    <div class="user-box">
+      <input type="text" formControlName="title" placeholder="Titre" [value]="eventSelected.title">
+    </div>
+    <div class="user-box">
+      <textarea class="txtMessage" formControlName="description" placeholder="Description" [value]="eventSelected.description"></textarea>
+    </div>
+    <div class="user-box">
+      <input type="datetime-local" formControlName="dateEvent" placeholder="Date d'événement" [value]="eventSelected.dateEvent">
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="city" placeholder="Ville" [value]="eventSelected.city">
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="street" placeholder="Rue" [value]="eventSelected.street">
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="streetNumber" placeholder="Numéro" [value]="eventSelected.streetNumber">
+    </div>
+    <div class="user-box">
+      <input type="number" formControlName="postalCode" placeholder="Code postal" [value]="eventSelected.postalCode">
+    </div>
+
+    <input class="submit" type="submit" value="Modifier l'événement" [disabled]="form.invalid">
+  </form>
+</div>

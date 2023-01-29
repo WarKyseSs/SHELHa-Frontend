@@ -1,0 +1,18 @@
+<div class="registr-box">
+  <form [formGroup]="form" (ngSubmit)="emitArticle()">
+    <h2>Création d'un nouvel article</h2>
+    <div *ngIf="controls('titre')?.dirty && controls('titre')?.invalid">
+      This information is required!
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="title" placeholder="Titre">
+    </div>
+    <div *ngIf="controls('description')?.dirty && controls('description')?.invalid">
+      This information is required!
+    </div>
+    <div class="user-box">
+      <textarea class="txtMessage" formControlName="description" placeholder="Description"></textarea>
+    </div>
+    <input class="submit" type="submit" value="Créer l'article" [disabled]="form.invalid">
+  </form>
+</div>

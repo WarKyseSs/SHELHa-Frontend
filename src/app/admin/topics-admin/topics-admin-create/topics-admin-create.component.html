@@ -1,0 +1,19 @@
+<div class="registr-box">
+  <form [formGroup]="form" (ngSubmit)="emitTopic()">
+    <h2>Création d'une nouvelle catégorie</h2>
+
+    <div *ngIf="controls('nameCat')?.dirty && controls('nameCat')?.invalid">
+      This information is required!
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="nameCat" placeholder="NameCat">
+    </div>
+    <div *ngIf="controls('description')?.dirty && controls('description')?.invalid">
+      This information is required!
+    </div>
+    <div class="user-box">
+      <textarea class="txtMessage" formControlName="description" placeholder="Description"></textarea>
+    </div>
+    <input class="submit" type="submit" [disabled]="form.invalid">
+  </form>
+</div>

@@ -1,0 +1,29 @@
+<div *ngIf="_signInService.isConnected() && !_signInService.isGuest()" class="actionForms">
+  <button class="btnForms" *ngIf="element == false" (click)="showData()"><i class="fa fa-plus" aria-hidden="true"></i> Nouveau Post</button>
+  <button class="btnForms" *ngIf="element == true" (click)="hideData()"><i class="fa fa-times" aria-hidden="true"></i> Cacher le formulaire</button>
+</div>
+
+<div class="registr-box" *ngIf="element == true">
+  <form [formGroup]="form" (ngSubmit)="emitPost()">
+    <h2>Création d'un nouveau post</h2>
+    <div class="select">
+      <select formControlName="idCat" >
+        <option value="" disabled selected>Categorie</option>
+        <option *ngFor = "let topic of topics" [ngValue]="topic.idCat">{{topic.nameCat}}</option>
+      </select>
+    </div>
+    <div class="errorMessage" *ngIf="controls('sujet')?.dirty && controls('sujet')?.invalid">
+      Le sujet est obligatoire !
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="sujet" placeholder="Sujet">
+    </div>
+    <div class="errorMessage" *ngIf="controls('message')?.dirty && controls('message')?.invalid">
+      Le message est obligatoire !
+    </div>
+    <div class="user-box">
+      <textarea class="txtMessage" formControlName="message" placeholder="Message"></textarea>
+    </div>
+    <input class="submit" type="submit" [disabled]="form.invalid">
+  </form>
+</div>

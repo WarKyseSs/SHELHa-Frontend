@@ -1,0 +1,30 @@
+<!-- css are in style.css -->
+<div class="registr-box">
+  <form [formGroup]="form" (ngSubmit)="connection()">
+    <h2>Connexion</h2>
+
+    <span>
+           {{feedback}}
+    </span>
+
+    <div *ngIf="inputUsername?.dirty && inputUsername?.invalid">
+      Merci d'encoder un nom d'utilisateur valide.
+    </div>
+
+    <div class="user-box">
+      <input type="text" formControlName="username" placeholder="Nom d'utilisateur">
+    </div>
+
+    <div *ngIf="inputPassword?.dirty && inputPassword?.invalid">
+      Merci d'encoder un mot de passe valide.
+    </div>
+
+    <div class="user-box">
+      <input type="password"  placeholder="Mot de passe" formControlName="password">
+    </div>
+
+    <input id="connexionBtn" class="submit" type="submit" [disabled]="form.invalid" value="Se connecter">
+
+  </form>
+</div>
+

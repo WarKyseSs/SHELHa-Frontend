@@ -1,0 +1,4 @@
+<form *ngIf="serviceINSign.isConnected() && !serviceINSign.isGuest()" class="comment" [formGroup]="form" (ngSubmit)="emitCommentCreated()">
+  <textarea class="txtComment" formControlName="message"></textarea>
+  <input type="submit" value="Ajouter commentaire"[disabled]="form.invalid">
+</form>

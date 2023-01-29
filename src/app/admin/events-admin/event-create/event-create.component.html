@@ -1,0 +1,81 @@
+<!--<form [formGroup]="form" (ngSubmit)="emitEvent()">-->
+<!--  <label>-->
+<!--    Titre : <input type="text" formControlName="title">-->
+<!--  </label>-->
+<!--  <label>-->
+<!--    Description : <input type="text" formControlName="description">-->
+<!--  </label>-->
+<!--  <label>-->
+<!--    Date d'événement : <input type="date" formControlName="dateEvent">-->
+<!--  </label>-->
+<!--  <label>-->
+<!--    Ville : <input type="text" formControlName="city">-->
+<!--  </label>-->
+<!--  <label>-->
+<!--    Rue : <input type="text" formControlName="street">-->
+<!--  </label>-->
+<!--  <label>-->
+<!--    Numéro : <input type="text" formControlName="streetNumber">-->
+<!--  </label>-->
+<!--  <label>-->
+<!--    Code postal : <input type="number" formControlName="postalCode">-->
+<!--  </label>-->
+<!--  <input type="submit" [disabled]="form.invalid">-->
+<!--  <input type="button" routerLink="/events" value="Retour">-->
+<!--</form>-->
+
+<div class="registr-box">
+  <form [formGroup]="form" (ngSubmit)="emitEvent()">
+    <h2>Création d'un nouvel événement</h2>
+    <div *ngIf="controls('titre')?.dirty && controls('titre')?.invalid">
+      This information is required!
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="title" placeholder="Titre">
+    </div>
+
+    <div *ngIf="controls('description')?.dirty && controls('description')?.invalid">
+      This information is required!
+    </div>
+    <div class="user-box">
+      <textarea class="txtMessage" formControlName="description" placeholder="Description"></textarea>
+    </div>
+
+    <div *ngIf="controls('dateEvent')?.dirty && controls('dateEvent')?.invalid">
+      This information is required!
+    </div>
+    <div class="user-box">
+      <input type="datetime-local" formControlName="dateEvent" placeholder="Date d'événement">
+    </div>
+
+    <div *ngIf="controls('city')?.dirty && controls('city')?.invalid">
+      This information is required!
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="city" placeholder="Ville">
+    </div>
+
+    <div *ngIf="controls('street')?.dirty && controls('street')?.invalid">
+      This information is required!
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="street" placeholder="Rue">
+    </div>
+
+    <div *ngIf="controls('streetNumber')?.dirty && controls('streetNumber')?.invalid">
+      This information is required!
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="streetNumber" placeholder="Numéro">
+    </div>
+
+    <div *ngIf="controls('postalCode')?.dirty && controls('postalCode')?.invalid">
+      This information is required!
+    </div>
+    <div class="user-box">
+      <input type="number" formControlName="postalCode" placeholder="Code postal">
+    </div>
+
+    <input class="submit" type="submit" value="Créer l'événement" [disabled]="form.invalid">
+  </form>
+</div>

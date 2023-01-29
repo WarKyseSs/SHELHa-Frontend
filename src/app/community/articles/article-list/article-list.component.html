@@ -1,0 +1,33 @@
+<div class="articles" *ngIf="articles; else articleListEmpty">
+  <h1>Les Articles</h1>
+  <div class="pagination">
+    <label>Afficher : </label>
+    <select (change)="onListSizeChange($event)">
+      <option *ngFor = "let size of listSizes">{{size}}</option>
+    </select>
+  </div>
+  <ul>
+    <li class="article" *ngFor = "let article of articles | paginate: { itemsPerPage: listSize, currentPage: page, totalItems: count}">
+      <a routerLink="{{article.urlArticle}}">
+        <div class="infoArticle">
+          <div class="headerArticle">
+            <p class="authorArticle"><i class="fa fa-user"></i> {{article.username}}</p>
+            <p class="dateArticle">{{article.datePublication | date:'dd/MM/YYYY - HH:mm'}}</p>
+          </div>
+          <div class="bodyArticle">
+            <h2 class="titleArticle">{{article.title}}</h2>
+            <p class="descriptionArticle">{{article.description}}</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+<ng-template #articleListEmpty>
+  <p>Il n'y a pas d'articles pour le moment</p>
+</ng-template>
+<pagination-controls
+  previousLabel="Prev"
+  nextLabel="Next"
+  (pageChange)="onListDataChange($event)"
+></pagination-controls>

@@ -1,0 +1,40 @@
+.about {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: auto;
+  width: 80%;
+}
+
+.box-left {
+  padding: 10px;
+  flex: 50%;
+}
+
+.box-left img {
+  width: 100%;
+}
+
+.box-right {
+  width: 50%;
+  margin: auto;
+}
+.box-right h1
+{
+  width: 70%;
+  margin: auto;
+}
+.box-right p {
+  margin: auto;
+  text-align: justify;
+  padding: 20px;
+  font-size: 17px;
+}
+
+/* Responsive */
+@media (max-width: 1050px) {
+  .box-right, .box-left {
+    flex: 100%;
+  }
+}

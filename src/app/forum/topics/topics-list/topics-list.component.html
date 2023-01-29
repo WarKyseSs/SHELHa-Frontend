@@ -1,0 +1,24 @@
+<div *ngIf="categories.length; else categoriesIstEmpty" class="nameCategories">
+  <h1>Les catégories du Forum</h1>
+  <div class="pagination">
+    <label>Afficher : </label>
+    <select (change)="onListSizeChange($event)">
+      <option *ngFor = "let size of listSizes">{{size}}</option>
+    </select>
+  </div>
+  <div *ngFor="let cat of categories | paginate: { itemsPerPage: listSize, currentPage: page, totalItems: count}" class="category">
+    <a routerLink="{{cat.urlTopic}}">
+      <p class="catNameCat">{{cat.nameCat}}</p>
+      <p>{{cat.description}}</p>
+    </a>
+  </div>
+</div>
+
+<ng-template #categoriesIstEmpty>
+  <p>Il n'y a pas de categories pour le moment</p>
+</ng-template>
+<pagination-controls
+  previousLabel="Prev"
+  nextLabel="Next"
+  (pageChange)="onListDataChange($event)"
+></pagination-controls>

@@ -1,0 +1,61 @@
+<div class="container" *ngIf="user; else userNotFound">
+  <div class="profil">
+    <div class="headerProfil">
+      <div class="pseudo">
+        <span>{{user.username}}</span>
+      </div>
+      <div class="username">
+        <span>{{user.firstname}} {{user.lastname}}</span>
+      </div>
+    </div>
+    <div class="bodyProfil">
+
+      <form [formGroup]="form" (ngSubmit)="emitUpdate(user)">
+
+        <br>
+        <h3>Pseudo</h3>
+        <hr>
+        <div *ngIf="controls('username')?.dirty && controls('username')?.invalid">
+          This information is required!
+        </div>
+        <input type="text" formControlName="username" [(ngModel)]="user.username"><br>
+
+        <br>
+        <h3>Adresse Email</h3>
+        <hr>
+        <div *ngIf="controls('mailaddress')?.dirty && controls('mailaddress')?.invalid">
+          This information is required!
+        </div>
+        <input type="email" formControlName="mailaddress" [(ngModel)]="user.mailaddress"><br>
+
+        <br>
+        <h3>Mot de passe</h3>
+        <hr>
+        <div *ngIf="controls('password')?.dirty && controls('password')?.invalid">
+          This information is required!
+        </div>
+        <p><input type="checkbox" formControlName="showPassword">Changer le mot de passe</p>
+        <p *ngIf="showPassword"><input type="password" formControlName="password" placeholder="Nouveau mot de passe"></p>
+
+        <br>
+        <h3>Implantation</h3>
+        <hr>
+        <br>
+        <div class="select">
+          <select  formControlName="implantation" [(ngModel)]="user.implantation">
+            <option *ngFor = "let imp of implantations" [value]="imp.nameImplantation">{{imp.nameImplantation}}</option>
+          </select>
+        </div>
+
+        <br>
+        <input class="submit" type="submit" value="Mettre à jour">
+      </form>
+        <div class="registrationDate">
+          <span>Inscrit depuis le <b>{{user.registrationDate | date:'dd/MM/YYYY'}}</b></span>
+        </div>
+    </div>
+  </div>
+</div>
+<ng-template #userNotFound>
+  Il n'y a pas d'utilisateur
+</ng-template>

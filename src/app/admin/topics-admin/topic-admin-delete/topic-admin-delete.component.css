@@ -1,0 +1,43 @@
+.container{
+  width: 80%;
+  margin: auto;
+}
+
+.container tr td{
+  width: 20%;
+  margin: auto;
+  text-align: center;
+}
+
+.container tr{
+  background-color: #eee ;
+}
+
+.nameTopic {
+  text-align: center;
+}
+
+.topic a {
+  color: darkblue;
+  text-decoration: none;
+}
+
+th {
+  background-color: #24262b;
+  color: white;
+}
+
+.table a.table-link {
+  margin: 0 5px;
+  font-size: 1.125em;
+}
+
+.table-link {
+  text-decoration: none;
+  color: #2aa493;
+}
+
+.table-link.danger {
+  color: #fe635f;
+}
+

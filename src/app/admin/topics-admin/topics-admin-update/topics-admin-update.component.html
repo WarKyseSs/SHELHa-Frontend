@@ -1,0 +1,18 @@
+<div class="registr-box">
+  <form [formGroup]="form" (ngSubmit)="emitTopicUpdate()">
+    <h2>Modification d'une catégorie</h2>
+    <div class="select">
+      <select name="topicSelectBox" id="topic" formControlName="idCat" [(ngModel)]="selected" (ngModelChange)="SelectHandler(selected)">
+        <option value="" disabled selected>Categorie</option>
+        <option *ngFor = "let cat of categoriesUpdate" [ngValue]="cat.idCat">{{cat.nameCat}}</option>
+      </select>
+    </div>
+    <div class="user-box">
+      <input type="text" class="inputNameCat" formControlName="nameCat" placeholder="NameCat" [value]="topicSelected.nameCat">
+    </div>
+    <div class="user-box">
+      <input type="text" class="inputDescription" formControlName="description" placeholder="Description" [value]="topicSelected.description">
+    </div>
+    <input class="submit" type="submit" [disabled]="form.invalid">
+  </form>
+</div>

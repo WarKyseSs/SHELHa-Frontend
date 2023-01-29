@@ -1,0 +1,21 @@
+<div class="registr-box">
+  <form [formGroup]="form" (ngSubmit)="emitUpdateArticle()">
+    <h2>Modification d'un article</h2>
+
+    <label for="titres">
+      Choississez un article à modifier :
+    </label>
+    <select class="select" #selectList name="titres" id="titres" formControlName="idArticle" [(ngModel)]="selected" (ngModelChange)="SelectHandler(selected)">
+      <option *ngFor="let article of articles" [ngValue]="article.idArticle">{{article.title}}</option>
+    </select>
+
+    <div class="user-box">
+      <input type="text" formControlName="title" placeholder="Titre" [value]="articleSelected.title">
+    </div>
+    <div class="user-box">
+      <textarea class="txtMessage" formControlName="description" placeholder="Description" [value]="articleSelected.description"></textarea>
+    </div>
+
+    <input class="submit" type="submit" value="Modifier l'article" [disabled]="form.invalid">
+  </form>
+</div>

@@ -1,0 +1,38 @@
+<!--<div *ngIf="articles.length; else articleListEmpty">-->
+<!--  <table>-->
+<!--    <tr>-->
+<!--      <th>Titre</th>-->
+<!--      <th>Supprimer</th>-->
+<!--    </tr>-->
+<!--    <tr *ngFor = "let article of articles">-->
+<!--      <td>{{article.title}}</td>-->
+<!--      <td> <button class="delete-button" (click)="emitDelete(article)"> Supprimer </button> </td>-->
+<!--    </tr>-->
+<!--  </table>-->
+<!--</div>-->
+
+<!--<ng-template #articleListEmpty>-->
+<!--  <p>Votre liste d'articles est vide, merci de créer un article.</p>-->
+<!--</ng-template>-->
+
+<div class="registr-box">
+  <form [formGroup]="form" (ngSubmit)="emitDelete()">
+    <h2>Suppression d'un article</h2>
+
+    <label for="titres">
+      Choississez un article à supprimer :
+    </label>
+    <select class="select" #selectList name="titres" id="titres" formControlName="idArticle" [(ngModel)]="selected" (ngModelChange)="SelectHandler(selected)">
+      <option *ngFor="let article of articles" [ngValue]="article.idArticle">{{article.title}}</option>
+    </select>
+
+    <div class="user-box">
+      <input type="text" formControlName="title" placeholder="Titre" [value]="articleSelected.title" readonly >
+    </div>
+    <div class="user-box">
+      <textarea class="txtMessage" formControlName="description" placeholder="Description" [value]="articleSelected.description" readonly ></textarea>
+    </div>
+
+    <input class="submit" type="submit" value="Supprimer l'article" [disabled]="form.invalid">
+  </form>
+</div>

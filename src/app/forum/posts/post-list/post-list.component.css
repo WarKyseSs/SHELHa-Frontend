@@ -1,0 +1,93 @@
+.posts
+{
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+}
+
+.post
+{
+  list-style: none;
+}
+
+.post a:hover
+{
+  opacity: 0.90;
+}
+
+.post a
+{
+  text-decoration: none;
+}
+
+.infoPost
+{
+  padding: 0 0 0 0;
+  margin-top: 5px;
+  border-radius: 5px;
+  color: #ffff;
+  background-color: #009790;
+  line-height: 1em;
+}
+
+
+.headerPost
+{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #424d58;
+  font-style: italic;
+}
+
+.bodyPost
+{
+  padding: 10px;
+  width:100%;
+
+}
+
+.authorPost
+{
+  float: left;
+  margin: 0;
+}
+.datePost
+{
+  margin: 0;
+  margin-left: 200px;
+  text-align: right;
+}
+
+.topicPost
+{
+  font-size: 1.2em;
+  padding: 0 0 10px 0;
+}
+
+.messagePost
+{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-style: italic;
+  color: #FFFFFF;
+  padding: 0 0 10px 0;
+}
+
+.postModif
+{
+  text-align: right;
+  font-style: italic;
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+.btnForms{
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #17a2b8;
+  color: #FFFFFF;
+  border: none;
+  margin-right: 10px;
+  border-radius: 10px;
+}

@@ -1,0 +1,34 @@
+<div class="events" *ngIf="events; else eventListEmpty">
+  <h1>Les Événements</h1>
+  <div class="pagination">
+    <label>Afficher : </label>
+    <select (change)="onListSizeChange($event)">
+      <option *ngFor = "let size of listSizes">{{size}}</option>
+    </select>
+  </div>
+  <ul>
+    <li class="event" *ngFor = "let event of events | paginate: { itemsPerPage: listSize, currentPage: page, totalItems: count}">
+      <a routerLink="{{event.urlEvent}}">
+        <div class="infoEvent">
+          <div class="headerEvent">
+            <p class="authorEvent"><i class="fa fa-user"></i> {{event.username}}</p>
+            <p class="dateEvent">{{event.datePublication | date:'dd/MM/YYYY - HH:mm'}}</p>
+          </div>
+          <div class="bodyEvent">
+            <h2 class="titleEvent">{{event.title}}</h2>
+            <p class="descriptionEvent">{{event.description}}</p>
+            <p class="dateEvent">L'événement aura lieu le {{event.dateEvent | date:'dd/MM/YYYY à HH:mm'}}</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+<ng-template #eventListEmpty>
+  <p>Il n'y a pas d'événements pour le moment</p>
+</ng-template>
+<pagination-controls
+  previousLabel="Prev"
+  nextLabel="Next"
+  (pageChange)="onListDataChange($event)"
+></pagination-controls>

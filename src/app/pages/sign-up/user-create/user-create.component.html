@@ -1,0 +1,49 @@
+<div class="registr-box">
+
+  <form id="signup-form" [formGroup]="form" (ngSubmit)="emitUser()">
+    <h2>Inscription</h2>
+    <div *ngIf="controls('username')?.dirty && controls('username')?.invalid">
+      Veuillez entrer un nom d'utilisateur valide!
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="username" placeholder="Pseudo">
+    </div>
+
+    <div *ngIf="controls('lastname')?.dirty && controls('lastname')?.invalid">
+      Veuillez entrer un nom valide!
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="lastname" placeholder="Nom">
+    </div>
+
+    <div *ngIf="controls('firstname')?.dirty && controls('firstname')?.invalid">
+      Veuillez entrer un prenom valide!
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="firstname" placeholder="Prénom">
+    </div>
+
+    <div *ngIf="controls('mailaddress')?.dirty && controls('mailaddress')?.invalid">
+      Veuillez entrer une adresse email valide!
+    </div>
+    <div class="user-box">
+      <input type="mailaddress" formControlName="mailaddress" placeholder="Adresse Email">
+    </div>
+
+    <div *ngIf="controls('password')?.dirty && controls('password')?.invalid">
+      Veuillez entrer un mot de passe valide!
+    </div>
+    <div class="user-box">
+      <input type="password" formControlName="password" placeholder="Mot de passe">
+    </div>
+
+    <div class="select">
+      <select formControlName="implantation">
+        <option value="" disabled selected>Implantations</option>
+        <option *ngFor = "let imp of implantations">{{imp.nameImplantation}}</option>
+      </select>
+    </div>
+
+    <input class="submit" type="submit" [disabled]="form.invalid" value="S'incrire">
+  </form>
+</div>

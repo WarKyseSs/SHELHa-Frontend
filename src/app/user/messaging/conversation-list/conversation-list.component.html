@@ -1,0 +1,41 @@
+<button class="float-button" (click)="toggleForm()">
+  <i class="fa fa-comments"></i>
+</button>
+
+<div id="box">
+<form *ngIf="showForm" class="float-form" [formGroup]="form" (ngSubmit)="createConversation()">
+  <label>
+    Nom de l'utilisateur de réception :
+    <input type="text" formControlName="usernameOfReceiver"/>
+  </label>
+  <br />
+  <label>
+    Sujet de la conversation :
+    <input type="text" formControlName="subject"/>
+  </label>
+  <br />
+  <label>
+    Message :
+    <input type="text" formControlName="message"/>
+  </label>
+  <br />
+  <button type="submit">Créer la conversation</button>
+</form>
+
+<div *ngIf="conversations; else converstionsAreEmpty">
+  <ul>
+    <li *ngFor="let conversation of conversations">
+      <a [routerLink]="[conversation.slug]">
+        {{conversation.interlocutorUsername}}
+        <span class="conversation-subject">Sujet: {{conversation.subject}}</span>
+      </a>
+      <span class="conversation-last-message">{{conversation.lastMessage}}</span>
+    </li>
+  </ul>
+</div>
+
+<ng-template #converstionsAreEmpty>
+  <p>Vous n'avez aucune conversations active</p>
+</ng-template>
+
+</div>

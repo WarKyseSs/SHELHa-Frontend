@@ -1,0 +1,20 @@
+<div *ngIf="event; else eventNotFound">
+  <div class="event">
+    <div class="event-header">
+      <h1 class="event-title">{{event.title}}</h1>
+      <p class="event-author">Auteur : <a routerLink="../../profil/{{event.username}}">{{event.username}}</a></p>
+      <p class="event-datePublication">{{event.datePublication | date: 'dd/MM/YYYY - HH:mm'}}</p>
+    </div>
+    <div class="event-body">
+      <p class="event-description">{{event.description}}</p>
+      <div class="event-address">
+        <div><span style="text-decoration: underline;">Adresse</span> :</div>
+        <div>{{event.street}}, {{event.streetNumber}}<br>{{event.postalCode}} {{event.city}}</div>
+      </div>
+      <p class="event-dateEvent"><span style="text-decoration: underline;">Date de l'événement</span> : le {{event.dateEvent | date: 'dd/MM/y à HH:mm'}}</p>
+    </div>
+  </div>
+</div>
+<ng-template #eventNotFound>
+  Il n'y a pas d'événements
+</ng-template>

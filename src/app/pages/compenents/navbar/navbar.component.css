@@ -1,0 +1,127 @@
+header
+{
+  top: 0;
+  left:0;
+  right: 0;
+  background-color: #24262b;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  padding: 20px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  position: sticky;
+}
+
+header .logo img
+{
+  width: 100px;
+}
+
+header .navbar
+{
+  padding-right: 50px;
+}
+
+header .navbar ul
+{
+  list-style: none;
+}
+
+header .navbar ul li
+{
+  position: relative;
+  float: left;
+}
+
+header .navbar ul li a
+{
+  text-decoration: none;
+  font-size: 20px;
+  padding: 20px;
+  color: #FFFFFF;
+  display: block;
+}
+
+header .navbar ul li a:hover
+{
+  background-color: #FFFFFF;
+  color: #009790;
+}
+
+header .navbar ul li ul
+{
+  position: absolute;
+  left: 0;
+  width: 200px;
+  background-color: #009790;
+  display: none;
+}
+
+header .navbar ul li ul li
+{
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, .1)
+}
+
+header .navbar ul li:hover > ul
+{
+  display: initial;
+}
+
+#menu-bar
+{
+  display: none;
+}
+
+header label{
+  font-size: 20px;
+  color: #424d58;
+  cursor: pointer;
+  display: none;
+}
+
+@media(max-width: 1170px)
+{
+  header
+  {
+    position: relative;
+    padding: 20px;
+  }
+  header label
+  {
+    display: initial;
+  }
+
+  header .navbar
+  {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #009790;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    display: none;
+  }
+
+  header .navbar ul li
+  {
+    width: 100%;
+  }
+
+  header .navbar ul li ul
+  {
+    position: relative;
+    width: 100%;
+  }
+
+  header .navbar ul li ul li
+  {
+    background-color: #343C42;
+  }
+
+  #menu-bar:checked ~ .navbar
+  {
+    display: initial;
+  }
+}

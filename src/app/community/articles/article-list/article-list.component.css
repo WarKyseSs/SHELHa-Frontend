@@ -1,0 +1,75 @@
+.articles
+{
+  width: 80%;
+  margin: auto;
+  padding: 20px 0 20px 0;
+}
+
+.articles ul
+{
+  list-style: none;
+}
+
+.article a:hover
+{
+  opacity: 0.90;
+}
+
+.article a
+{
+  text-decoration: none;
+}
+
+.infoArticle
+{
+  padding: 0 0 0 0;
+  margin-top: 5px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  background-color: #009790;
+  line-height: 1em;
+}
+
+.headerArticle
+{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #424d58;
+  font-style: italic;
+}
+
+.bodyArticle
+{
+  padding: 10px;
+  width:100%;
+
+}
+
+.authorArticle
+{
+  float: left;
+  margin: 0;
+}
+.dateArticle
+{
+  margin: 0;
+  margin-left: 200px;
+  text-align: right;
+}
+
+.titleArticle
+{
+  font-size: 1.2em;
+  padding: 0 0 10px 0;
+  word-wrap: break-word;
+}
+
+.descriptionArticle
+{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-style: italic;
+  padding: 0 0 10px 0;
+}
+

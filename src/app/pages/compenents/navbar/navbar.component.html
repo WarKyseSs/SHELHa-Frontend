@@ -1,0 +1,30 @@
+<header>
+  <a routerLink="index" class="logo"><img src="assets/img/logo.png" alt="logo SHELHa" /></a>
+  <input type="checkbox" id="menu-bar">
+  <label for="menu-bar"><i class="fa fa-bars"></i></label>
+  <nav class="navbar">
+    <ul>
+      <li><a routerLink="index" routerLinkActive="active">Accueil</a></li>
+      <li><a routerLink="articles" routerLinkActive="active">Articles</a></li>
+      <li><a routerLink="events" routerLinkActive="active">Événements</a></li>
+      <li><a routerLink="forum" routerLinkActive="active" >Forum</a></li>
+      <li><a routerLink="about" routerLinkActive="active">Qui sommes nous?</a>
+        <ul>
+          <li><a routerLink="about" routerLinkActive="active">A propos</a></li>
+          <li><a routerLink="about/contributors" routerLinkActive="active">Contributeurs</a></li>
+          <li><a href="https://www.helha.be/" target="_blank">HELHA</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="contact" routerLinkActive="active">Contact</a></li>
+      <li><a *ngIf="!user"><i class="fa fa-user"></i></a><a *ngIf="user" routerLink="profil/{{user.username}}"><i class="fa fa-user"></i></a>
+        <ul>
+          <li><a *ngIf="_signinService.isAdmin() || _signinService.isModo() || _signinService.isCommunityManager()" routerLink="admin" routerLinkActive="active">Administration</a></li>
+          <li><a *ngIf="_signinService.isConnected()" routerLink="user/conversation/list" routerLinkActive="active">Messagerie</a></li>
+          <li><a *ngIf="!_signinService.isConnected()" routerLink="registration" routerLinkActive="active">Inscription</a></li>
+          <li><a *ngIf="!_signinService.isConnected()" routerLink="connection" routerLinkActive="active">Connexion</a></li>
+          <li><a *ngIf="_signinService.isConnected()" (click)="disconnect()">Déconnexion</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>

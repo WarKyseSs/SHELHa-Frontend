@@ -1,0 +1,3 @@
+<app-comment-list [comments]="comments" (commentDeleted)="delete($event)" (commentUpdated)="update($event)"></app-comment-list>
+<app-comment-create [postComment]="postComment" (commentCreated)="create($event)"></app-comment-create>
+<router-outlet></router-outlet>

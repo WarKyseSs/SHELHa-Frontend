@@ -1,0 +1,36 @@
+<div class="registr-box">
+  <form id="signup-form" [formGroup]="form">
+    <h2>Besoin d'une information ?</h2>
+    <h2>Vous pouvez nous contacter par mail</h2>
+
+    <div class="errorMessage" *ngIf="controls('lastname')?.dirty && controls('lastname')?.invalid">
+      Veuillez entrer un nom !
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="lastname" placeholder="Nom">
+    </div>
+
+    <div class="errorMessage" *ngIf="controls('firstname')?.dirty && controls('firstname')?.invalid">
+      Veuillez entrer un prénom valide!
+    </div>
+    <div class="user-box">
+      <input formControlName="firstname" type="text" placeholder="Prénom">
+    </div>
+
+    <div class="errorMessage" *ngIf="controls('email')?.dirty && controls('firstname')?.invalid">
+      Veuillez entrer un prenom valide!
+    </div>
+    <div class="user-box">
+      <input formControlName="email" type="email" placeholder="Adresse mail">
+    </div>
+
+    <div class="errorMessage" *ngIf="controls('message')?.dirty && controls('message')?.invalid">
+      Veuillez entrer un message valide!
+    </div>
+    <div class="user-box">
+      <textarea class="txtMessage" formControlName="message" placeholder="Message"></textarea>
+    </div>
+
+    <input type="submit" class="submit" [disabled]="form.invalid" value="Envoyer" routerLink="../connection">
+  </form>
+</div>

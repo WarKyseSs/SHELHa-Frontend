@@ -1,0 +1,66 @@
+.event {
+  padding: 0 0 0 0;
+  margin: 80px 100px;
+  border-radius: 5px;
+  color: #ffff;
+  background-color: #009790;
+  line-height: 1em;
+}
+
+.event a{
+  color: #FFFFFF;
+}
+
+.event-header {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #424d58;
+}
+
+.event-body {
+  padding: 10px;
+  width:100%;
+}
+
+/* Titre de l'article */
+.event-title {
+  font-size: 38px;
+  line-height: 1.5em;
+  font-weight: bold;
+  color: white;
+  padding: 20px;
+  word-wrap: break-word;
+}
+
+.event-datePublication {
+  text-align: end;
+}
+
+/* Description de l'article */
+.event-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: white;
+  padding: 10px;
+}
+
+.event-address {
+  display: flex;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: white;
+  padding: 10px;
+}
+
+.event-dateEvent {
+  font-size: 16px;
+  line-height: 1.6;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.event-author {
+  text-align: end;
+}

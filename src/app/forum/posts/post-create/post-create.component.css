@@ -1,0 +1,17 @@
+.actionForms
+{
+  width: 80%;
+  margin: auto;
+  padding: 20px 0 0 0;
+}
+
+.btnForms{
+  float: right;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #17a2b8;
+  color: #FFFFFF;
+  border: none;
+  margin-right: 10px;
+  border-radius: 10px;
+}

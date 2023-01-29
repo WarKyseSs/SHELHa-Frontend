@@ -1,0 +1,73 @@
+.events
+{
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+}
+
+.event a:hover
+{
+  opacity: 0.90;
+}
+
+.events ul
+{
+  list-style: none;
+}
+
+.event a
+{
+  text-decoration: none;
+}
+
+.infoEvent
+{
+  padding: 0 0 0 0;
+  margin-top: 5px;
+  border-radius: 5px;
+  color: #ffff;
+  background-color: #009790;
+  line-height: 1em;
+}
+
+.headerEvent
+{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #424d58;
+  font-style: italic;
+}
+
+.bodyEvent
+{
+  padding: 10px;
+  width:100%;
+}
+
+.authorEvent
+{
+  float: left;
+  margin: 0;
+}
+.dateEvent
+{
+  margin: 0;
+  margin-left: 200px;
+  text-align: right;
+}
+
+.titleEvent
+{
+  font-size: 1.2em;
+  padding: 0 0 10px 0;
+  word-wrap: break-word;
+}
+
+.descriptionEvent
+{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-style: italic;
+  padding: 0 0 10px 0;
+}

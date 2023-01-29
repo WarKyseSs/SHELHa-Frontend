@@ -1,0 +1,96 @@
+.card {
+  width: 60%;
+  border: black;
+  border-radius: 30px;
+  background-color: cornflowerblue;
+  transition: all 0.5s;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.profil
+{
+  width: 60%;
+  border: black;
+  border-radius: 30px;
+  background-color: #009790;
+  transition: all 0.5s;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+  padding: 15px;
+}
+
+.headerProfil
+{
+  padding: 20px;
+  border-radius: 30px;
+  background-color: #424d58;
+  color: #FFFFFF;
+}
+
+.bodyProfil
+{
+  padding: 10px;
+  width:100%;
+}
+
+.mailaddress a {
+  color: darkblue;
+  text-decoration: none;
+}
+
+.username {
+  font-size: 0.875em;
+  font-style: italic;
+}
+
+.pseudo {
+  font-size: 34px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.registrationDate {
+  background-color: #ccc;
+  border-radius: 0.25rem!important;
+  padding-right: 0.5rem!important;
+  padding-left: 0.5rem!important;
+  margin-top: 1.5rem!important;
+}
+
+.table-link {
+  text-decoration: none;
+  color: #546270;
+}
+
+hr {
+  width: 50%;
+  margin: auto;
+}
+
+input[type=submit]{
+  background-color: #424d58;
+  width: 30%;
+}
+
+.select{
+  width: 30%;
+  margin: auto;
+}
+
+/* Arrow */
+.select::after {
+  background-color: #414c58;
+}
+
+input[type=text], input[type=email], input[type=password] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}

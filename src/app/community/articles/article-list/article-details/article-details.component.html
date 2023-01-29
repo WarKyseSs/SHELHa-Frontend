@@ -1,0 +1,15 @@
+<div *ngIf="article; else articleNotFound">
+  <div class="article">
+    <div class="article-header">
+      <h1 class="article-title">{{article.title}}</h1>
+      <p class="article-datePublication">{{article.datePublication | date: 'dd/MM/YYYY - HH:mm'}}</p>
+    </div>
+    <div class="article-body">
+      <p class="article-description">{{article.description}}</p>
+      <p class="article-author">Auteur : <a routerLink="../../profil/{{article.username}}">{{article.username}}</a></p>
+    </div>
+  </div>
+</div>
+<ng-template #articleNotFound>
+  Il n'y a pas d'article
+</ng-template>

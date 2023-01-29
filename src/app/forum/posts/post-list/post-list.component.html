@@ -1,0 +1,49 @@
+
+<div class="posts" *ngIf="posts; else postsIstEmpty">
+  <div class="pagination">
+    <label>Afficher : </label>
+    <select (change)="onListSizeChange($event)">
+      <option *ngFor = "let size of listSizes">{{size}}</option>
+    </select>
+    <input type="text" [(ngModel)]="postFilter" placeholder="Recherche">
+  </div>
+  <ul>
+    <li class="post" *ngFor = "let post of posts | filter:postFilter | paginate: { itemsPerPage: listSize, currentPage: page, totalItems: count}">
+      <a routerLink="{{post.urlPost}}">
+        <div class="infoPost">
+          <div class="headerPost">
+            <p class="authorPost"><i class="fa fa-user"></i> {{post.username}}  - {{post.userRole}}</p>
+            <p class="datePost">{{post.datePost | date:'dd/MM/YYYY - HH:mm'}}</p>
+          </div>
+          <div class="bodyPost">
+            <p class="topicPost">{{post.sujet}}</p>
+            <p class="messagePost">{{post.message}}</p>
+            <p *ngIf="('0001-01-01T00:00:00' | date:'dd/MM/yyyy') != (post.dateLastEdit | date:'dd/MM/yyyy')" class="postModif">
+              Modifié le {{post.dateLastEdit | date:'dd/MM/YYYY à HH:mm'}}
+            </p>
+          </div>
+        </div>
+      </a>
+      <div *ngIf="post.isSelected">
+        <form [formGroup]="form" (ngSubmit)="emitUpdate(post)">
+          <textarea class="txtMessage" formControlName="newComment" [ngModel]="post.message"></textarea>
+          <input class="submit" type="submit" [disabled]="form.invalid">
+        </form>
+      </div>
+      <div class="actionForms">
+        <button class="btnForms" *ngIf="element == false && post.canChange" (click)="showData(post)"><i class="fa fa-pencil-alt"></i> Modifier</button>
+        <button class="btnForms" *ngIf="element == true && post.canChange" (click)="hideData()"><i class="fa fa-times" aria-hidden="true"></i> Masquer</button>
+        <button class="btnForms" *ngIf="_signInService.isAdmin() || _signInService.isModo() && post.canChange" (click)="emitDelete(post)"><i class="fa fa-minus" aria-hidden="true"></i> Supprimer</button>
+      </div>
+    </li>
+  </ul>
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="onListDataChange($event)"
+  ></pagination-controls>
+</div>
+<ng-template #postsIstEmpty>
+  <p>Il n'y a pas de post pour le moment</p>
+</ng-template>
+

@@ -1,0 +1,46 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="pagination">
+  <label>Afficher : </label>
+  <select (change)="onListSizeChange($event)">
+    <option *ngFor = "let size of listSizes">{{size}}</option>
+  </select>
+</div>
+
+<div class="container"  *ngIf="topics; else topicIstEmpty">
+  <table>
+    <tr>
+      <th>Nom catégorie</th>
+      <th>Description</th>
+      <th>&nbsp;</th>
+    </tr>
+    <tr *ngFor = "let cat of topics | paginate: { itemsPerPage: listSize, currentPage: page, totalItems: count}">
+      <td>
+        <div class="nameTopic">
+          <div class="topic">
+            <a>{{cat.idCat}} - {{cat.nameCat}}</a>
+          </div>
+        </div>
+      </td>
+      <td class="description">
+        {{cat.description}}
+      </td>
+      <td style="width: 20%;">
+        <a class="table-link danger" (click)="emitDelete(cat)">
+          <span class="fa-stack">
+            <i class="fa fa-square fa-stack-2x"></i>
+            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+<ng-template #topicIstEmpty>
+  <p>Aucuns utilisateur n'est inscrit pour le moment</p>
+</ng-template>
+<pagination-controls
+  previousLabel="Prev"
+  nextLabel="Next"
+  (pageChange)="onListDataChange($event)"
+></pagination-controls>
+

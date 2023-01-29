@@ -1,0 +1,16 @@
+<div class="post" *ngIf="post; else postNotFound">
+  <div class="infoPost">
+    <div class="headerPost">
+      <a class="authorPost" routerLink="../../../profil/{{post.username}}"><i class="fa fa-user"></i> {{post.username}} - {{post.userRole}}</a>
+      <p class="datePost">{{post.datePost | date:'dd/MM/YYYY - hh:mm'}}</p>
+    </div>
+    <div class="bodyPost">
+      <p class="topicPost">{{post.sujet}}</p>
+      <p class="messagePost">{{post.message}}</p>
+    </div>
+  </div>
+</div>
+<app-comments [postComment]="post"></app-comments>
+<ng-template #postNotFound>
+  Il n'y a pas de post
+</ng-template>

@@ -1,0 +1,64 @@
+.post
+{
+  width: 80%;
+  margin: auto;
+  list-style: none;
+  padding: 10px;
+}
+
+.infoPost
+{
+  padding: 0 0 0 0;
+  margin-top: 5px;
+  border-radius: 5px;
+  color: #ffff;
+  background-color: #009790;
+  line-height: 1em;
+}
+
+
+.headerPost
+{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #424d58;
+  font-style: italic;
+}
+
+.bodyPost
+{
+  padding: 10px;
+  width:100%;
+
+}
+
+.authorPost
+{
+  color: #ffffff;
+  float: left;
+  margin: 0;
+}
+
+.authorPost:hover
+{
+  color: #009790;
+}
+
+.datePost
+{
+  margin: 0;
+  margin-left: 200px;
+  text-align: right;
+}
+
+.topicPost
+{
+  font-size: 1.2em;
+  padding: 0 0 10px 0;
+}
+
+.messagePost
+{
+  color: #ffffff;
+  padding: 0 0 10px 0;
+}

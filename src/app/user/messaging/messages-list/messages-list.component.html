@@ -1,0 +1,27 @@
+<div class="chat-box">
+      <div class="chat" *ngIf="messages; else messagesAreEmpty">
+        <div *ngFor="let message of messages" [ngClass]="{'message user1': message.idSender == this.idOfUserConnected, 'message user2': message.idSender != this.idOfUserConnected}">
+            <div class="sender-name">{{message.usernameOfSender}}</div>
+            <div class="message-text">{{message.message}}</div>
+        </div>
+      </div>
+</div>
+
+<button class="floating-button" type="submit" [routerLink]="['/user/conversation/list']">
+  <i class="fas fa-arrow-left"></i>
+</button>
+
+
+<form [formGroup]="form" (ngSubmit)="sendMessage()">
+  <input type="text" formControlName="message" >
+  <button type="submit">Envoyer</button>
+</form>
+
+<ng-template #messagesAreEmpty>
+  <p>Vous n'avez aucune message dans cette conversation</p>
+</ng-template>
+
+
+
+
+
